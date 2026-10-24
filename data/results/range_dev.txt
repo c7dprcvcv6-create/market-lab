@@ -1,0 +1,38 @@
+too short: BMNR
+market-lab range forecast  mode=dev
+dev data: samples whose target date is before 2023-10-24
+pooled assets: BTC-USD ETH-USD COIN MSTR SPY QQQ NVDA TSLA AAPL MSFT JPM KO XOM GLD
+excluded from pool: BMNR
+
+cov68/cov95: % of real moves inside the calibrated band (target 68.3/95)
+raw68/raw95: same but with plain normal bands 1.00 and 1.96 sigma
+IS95x/IS68x: interval score vs exp model, geo-mean over assets (<1 better)
+wins: assets where model beats exp on IS95
+
+== horizon 1 days ==
+model      n cov68 cov95 raw68 raw95  IS95x  IS68x  wins
+exp     65725  72.8  95.8  84.0  96.6  1.000  1.000     -
+v20     65725  68.5  94.8  70.6  92.6  0.891  0.956 11/14
+v60     65725  68.7  94.8  73.1  93.8  0.894  0.957 13/14
+ewma    65725  68.8  94.9  72.4  93.9  0.863  0.946 14/14
+
+== horizon 3 days ==
+model      n cov68 cov95 raw68 raw95  IS95x  IS68x  wins
+exp     65697  72.7  96.0  83.9  96.9  1.000  1.000     -
+v20     65697  68.1  94.9  69.5  92.4  0.932  0.967 12/14
+v60     65697  68.6  94.8  72.2  93.9  0.914  0.963 12/14
+ewma    65697  68.5  94.9  71.4  93.8  0.896  0.955 12/14
+
+== horizon 5 days ==
+model      n cov68 cov95 raw68 raw95  IS95x  IS68x  wins
+exp     65669  72.8  96.0  83.9  97.1  1.000  1.000     -
+v20     65669  68.4  94.8  68.7  92.2  0.952  0.977 10/14
+v60     65669  68.9  94.7  71.5  93.8  0.928  0.968 12/14
+ewma    65669  68.7  94.8  70.7  93.6  0.914  0.964 12/14
+
+== horizon 21 days ==
+model      n cov68 cov95 raw68 raw95  IS95x  IS68x  wins
+exp     65445  72.3  96.0  83.6  97.2  1.000  1.000     -
+v20     65445  68.0  94.5  66.3  91.1  1.029  1.000  7/14
+v60     65445  68.4  94.6  69.4  93.3  0.967  0.984  8/14
+ewma    65445  68.2  94.7  68.2  92.8  0.975  0.983  8/14
