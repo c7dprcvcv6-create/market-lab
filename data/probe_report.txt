@@ -1,0 +1,25 @@
+probe time: 2026-10-24T08:46:11.177124+00:00
+
+== Yahoo chart (no key) ==
+BTC-USD: ok rows=146 first=2014-10-01 last=2026-10-24
+ETH-USD: ok rows=469 first=2017-11-06 last=2026-10-24
+BMNR: ok rows=349 first=2025-06-05 last=2026-10-23
+COIN: ok rows=290 first=2021-04-12 last=2026-10-23
+MSTR: ok rows=341 first=1998-07-01 last=2026-10-23
+SPY: ok rows=406 first=1993-02-01 last=2026-10-23
+QQQ: ok rows=332 first=1999-04-01 last=2026-10-23
+NVDA: ok rows=334 first=1999-02-01 last=2026-10-23
+TSLA: ok rows=197 first=2010-07-01 last=2026-10-23
+AAPL: ok rows=169 first=1984-12-01 last=2026-10-23
+MSFT: ok rows=164 first=1986-03-01 last=2026-10-23
+JPM: ok rows=169 first=1984-12-01 last=2026-10-23
+KO: ok rows=169 first=1985-01-01 last=2026-10-23
+XOM: ok rows=169 first=1985-01-01 last=2026-10-23
+GLD: ok rows=264 first=2004-12-01 last=2026-10-23
+
+== Other sources (small test) ==
+stooq AAPL csv: status=200 bytes=796 head='<!DOCTYPE html><html><head><meta charset="utf-8"><meta name='
+bitstamp BTC ohlc: status=200 bytes=718 head='{"data": {"pair": "BTC/USD", "ohlc": [{"timestamp": "1792454'
+coinbase BTC candles: status=200 bytes=21445 head='[[1792800000,80478.56,81106.03,81079.63,80548.65,1021.588387'
+binance BTC klines: status=451 bytes=0 head=''
+binance-vision BTC klines: status=200 bytes=928 head='[[1792454400000,"81938.39000000","83439.00000000","81200.000'
