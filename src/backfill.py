@@ -13,7 +13,7 @@ TICKERS = ["BTC-USD", "ETH-USD", "BMNR", "COIN", "MSTR", "SPY", "QQQ",
 CRYPTO = {"BTC-USD", "ETH-USD"}
 START_YEAR = {"BTC-USD": 2014, "ETH-USD": 2017, "BMNR": 2025,
               "COIN": 2021, "TSLA": 2010, "GLD": 2004}
-DEFAULT_START = 1990
+DEFAULT_START = 1999
 NOW = dt.datetime.now(dt.timezone.utc)
 TODAY = NOW.date()
 OUT = pathlib.Path("data/prices")
