@@ -1,0 +1,39 @@
+name: Telegram Notify
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'data/results/**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Read latest result
+        id: result
+        run: |
+          echo "RANGE_NOW<<EOF" >> $GITHUB_ENV
+          cat data/results/range_now.txt 2>/dev/null || echo "No file" 
+          echo "EOF" >> $GITHUB_ENV
+          cat data/results/range_now.txt 2>/dev/null || true
+          
+      - name: Send to Telegram
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          MESSAGE="📊 market-lab อัพเดทแล้ว!
+          
+          ไฟล์ใหม่: ${{ github.event.head_commit.message }}
+          
+          range_now.txt:
+          ${{ env.RANGE_NOW }}
+          
+          ดูเต็มๆ: https://github.com/${{ github.repository }}/tree/main/data/results"
+          
+          curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+            -d chat_id="${CHAT_ID}" \
+            --data-urlencode text="${MESSAGE}"
