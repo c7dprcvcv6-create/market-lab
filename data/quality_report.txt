@@ -1,0 +1,19 @@
+backfill time: 2026-10-24T08:58:12.958424+00:00
+BTC-USD: ok rows=4420 first=2014-09-17 last=2026-10-23 median_gap=1d gaps_over_1d=0 max_gap=1d max_1d_move=37.2%@2020-03-12
+ETH-USD: ok rows=3271 first=2017-11-09 last=2026-10-23 median_gap=1.0d gaps_over_1d=0 max_gap=1d max_1d_move=42.3%@2020-03-12
+BMNR: ok rows=349 first=2025-06-05 last=2026-10-23 median_gap=1.0d gaps_over_5d=0 max_gap=4d max_1d_move=694.8%@2025-06-30
+COIN: ok rows=1390 first=2021-04-14 last=2026-10-23 median_gap=1d gaps_over_5d=0 max_gap=4d max_1d_move=31.1%@2024-11-06
+MSTR: ERROR MSTR 1990-01-01->1995-01-01 status=400 
+SPY: ok rows=8492 first=1993-01-29 last=2026-10-23 median_gap=1d gaps_over_5d=1 max_gap=7d max_1d_move=14.5%@2008-10-13
+QQQ: ERROR QQQ 1990-01-01->1995-01-01 status=400 
+NVDA: ERROR NVDA 1990-01-01->1995-01-01 status=400 
+TSLA: ok rows=4106 first=2010-06-29 last=2026-10-23 median_gap=1d gaps_over_5d=0 max_gap=5d max_1d_move=24.4%@2013-05-09
+AAPL: ok rows=9271 first=1990-01-02 last=2026-10-23 median_gap=1.0d gaps_over_5d=1 max_gap=7d max_1d_move=51.9%@2000-09-29
+MSFT: ok rows=9271 first=1990-01-02 last=2026-10-23 median_gap=1.0d gaps_over_5d=1 max_gap=7d max_1d_move=19.6%@2000-10-19
+JPM: ok rows=9271 first=1990-01-02 last=2026-10-23 median_gap=1.0d gaps_over_5d=1 max_gap=7d max_1d_move=25.1%@2009-01-21
+KO: ok rows=9271 first=1990-01-02 last=2026-10-23 median_gap=1.0d gaps_over_5d=1 max_gap=7d max_1d_move=13.9%@2008-10-13
+XOM: ok rows=9271 first=1990-01-02 last=2026-10-23 median_gap=1.0d gaps_over_5d=1 max_gap=7d max_1d_move=17.2%@2008-10-13
+GLD: ok rows=5517 first=2004-11-18 last=2026-10-23 median_gap=1.0d gaps_over_5d=0 max_gap=5d max_1d_move=11.3%@2008-09-17
+
+XCHK BTC-USD vs Binance BTCUSDT: days=3355 median_diff=0.09% max_diff=10.52%@2017-12-23
+XCHK ETH-USD vs Binance ETHUSDT: days=3271 median_diff=0.09% max_diff=12.34%@2017-12-23
