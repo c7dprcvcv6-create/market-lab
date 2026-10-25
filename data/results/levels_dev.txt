@@ -1,0 +1,51 @@
+too short for tests: BMNR
+market-lab levels test  mode=dev
+train: windows ending before 2012-01-01   val: 2012-01-01 to 2023-10-24
+pooled: BTC-USD ETH-USD COIN MSTR SPY QQQ NVDA TSLA AAPL MSFT JPM KO XOM GLD
+entry = edge of the 68% band, wrong-way = edge of the 95% band
+touch uses daily high/low. half = halfway back to the signal price
+half|touch = reaches halfway before the wrong-way level
+wrong|touch = hits wrong-way level first. neither = neither in window
+full = returns all the way to the signal price before the wrong-way level
+
+== 5 days, ลงแตะ ==
+period       n touch%  half% wrong% neither%  full%  n_touch
+train       27981   29.8   41.6   18.1     40.3   19.9     8350
+val         37842   27.9   41.4   19.5     39.1   19.8    10570
+val-train    -1.9   -0.2   +1.4     -1.2   STABLE
+trend train half|touch above SMA200 40.9% (n=4890) below 42.5% (n=3460) z=-0.6
+trend val   half|touch above SMA200 42.9% (n=7442) below 37.8% (n=3128) z=+2.2
+
+== 5 days, ขึ้นแตะ ==
+period       n touch%  half% wrong% neither%  full%  n_touch
+train       27981   30.7   33.1   12.9     54.0   14.2     8583
+val         37842   31.2   31.2   13.3     55.5   13.8    11805
+val-train    +0.5   -1.9   +0.4     +1.5   STABLE
+trend train half|touch above SMA200 31.7% (n=5229) below 35.2% (n=3354) z=-1.5
+trend val   half|touch above SMA200 30.5% (n=8254) below 32.7% (n=3551) z=-1.0
+
+== 10 days, ลงแตะ ==
+period       n touch%  half% wrong% neither%  full%  n_touch
+train       27926   30.0   46.5   17.1     36.4   21.7     8376
+val         37827   27.9   46.6   18.7     34.7   22.5    10551
+val-train    -2.1   +0.1   +1.6     -1.7   STABLE
+trend train half|touch above SMA200 45.9% (n=4953) below 47.4% (n=3423) z=-0.4
+trend val   half|touch above SMA200 49.0% (n=7426) below 41.0% (n=3125) z=+2.4
+
+== 10 days, ขึ้นแตะ ==
+period       n touch%  half% wrong% neither%  full%  n_touch
+train       27926   31.6   37.2   12.6     50.2   15.3     8831
+val         37827   32.3   32.3   13.4     54.3   13.3    12214
+val-train    +0.7   -4.9   +0.8     +4.0   DRIFT
+trend train half|touch above SMA200 36.3% (n=5568) below 38.8% (n=3263) z=-0.7
+trend val   half|touch above SMA200 32.3% (n=8644) below 32.3% (n=3570) z=+0.0
+
+== criteria (set before running) ==
+stable 5d ลงแตะ        PASS
+trend info 5d ลงแตะ    FAIL
+stable 5d ขึ้นแตะ      PASS
+trend info 5d ขึ้นแตะ  FAIL
+stable 10d ลงแตะ       PASS
+trend info 10d ลงแตะ   FAIL
+stable 10d ขึ้นแตะ     FAIL
+trend info 10d ขึ้นแตะ FAIL
