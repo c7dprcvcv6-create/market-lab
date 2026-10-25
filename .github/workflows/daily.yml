@@ -1,7 +1,7 @@
 name: daily
 on:
   schedule:
-    - cron: "30 22 * * *"
+    - cron: "0 1 * * *"
   workflow_dispatch:
     inputs:
       test:
@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: python src/daily.py
+      - run: python src/run_daily.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
