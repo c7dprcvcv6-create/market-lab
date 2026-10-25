@@ -1,0 +1,39 @@
+name: experiments
+on:
+  workflow_dispatch:
+    inputs:
+      which:
+        description: "which test to run"
+        type: choice
+        options:
+          - levels
+          - riskparity
+        default: levels
+      mode:
+        description: "dev = data before 2023-10-24. holdout = last 3 years, run once"
+        type: choice
+        options:
+          - dev
+          - holdout
+        default: dev
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python src/${{ inputs.which }}_test.py
+        env:
+          MODE: ${{ inputs.mode }}
+      - name: Commit result
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data
+          git commit -m "${{ inputs.which }} ${{ inputs.mode }}" || echo "nothing to commit"
+          git pull --rebase origin main
+          git push
