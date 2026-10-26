@@ -1,0 +1,33 @@
+market-lab risk balance test  mode=dev
+monthly rebalance (every 21 trading days), no fees, daily bars
+equal = same money in each asset. invvol = same risk in each asset
+(weight proportional to 1 / recent volatility). spy = 100% SPY
+assets: BTC-USD ETH-USD COIN MSTR SPY QQQ NVDA TSLA AAPL MSFT JPM KO XOM GLD
+note: the asset list was picked with hindsight, so absolute returns
+are too good. compare the weighting schemes, not the absolute level.
+
+== 1999-2011 ==
+scheme   return/yr   vol/yr  sharpe  max drop   worst day
+equal        16.1%    27.7%    0.68    -62.5%       -8.6%
+invvol       11.7%    22.1%    0.61    -49.5%       -7.9%
+spy           1.5%    21.9%    0.18    -55.2%       -9.8%
+
+== 2012-2023 ==
+scheme   return/yr   vol/yr  sharpe  max drop   worst day
+equal        28.6%    22.7%    1.22    -44.1%      -14.4%
+invvol       20.1%    16.6%    1.18    -30.7%      -12.2%
+spy          12.9%    16.8%    0.81    -33.7%      -10.9%
+
+== all dev ==
+scheme   return/yr   vol/yr  sharpe  max drop   worst day
+equal        21.9%    25.4%    0.91    -62.5%      -14.4%
+invvol       15.5%    19.6%    0.84    -49.5%      -10.5%
+spy           6.8%    19.6%    0.43    -55.2%      -10.9%
+
+== criteria (set before running) ==
+1999-2011 lower vol than equal: PASS
+1999-2011 smaller max drop than equal: PASS
+1999-2011 sharpe not worse by more than 0.05: FAIL
+2012-2023 lower vol than equal: PASS
+2012-2023 smaller max drop than equal: PASS
+2012-2023 sharpe not worse by more than 0.05: PASS
