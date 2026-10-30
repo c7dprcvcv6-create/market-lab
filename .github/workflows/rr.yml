@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: python src/rr_test.py
+      - run: python src/src/rr_test.py
         env:
           MODE: ${{ inputs.mode }}
       - name: Commit result
