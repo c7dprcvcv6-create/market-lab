@@ -1,0 +1,64 @@
+buy now, stop and target, from the last close
+(statistics for learning, not advice)
+odds from pooled history before 2023-10-24, 5-day window
+target = 2 times the risk. figures are share of trades
+
+BTC 81,268 (close 2026-10-28)
+  stop 80,066 (-1.5%)  target 83,672 (+3.0%)  reach target first 27% | stop first 53% | neither 20%
+  stop 78,881 (-2.9%)  target 86,040 (+5.9%)  reach target first 7% | stop first 29% | neither 64%
+
+ETH 2,358 (close 2026-10-28)
+  stop 2,313 (-1.9%)  target 2,446 (+3.8%)  reach target first 27% | stop first 53% | neither 20%
+  stop 2,270 (-3.7%)  target 2,533 (+7.5%)  reach target first 7% | stop first 29% | neither 64%
+
+BMNR 21.66 (close 2026-10-29)
+  stop 20.91 (-3.5%)  target 23.16 (+6.9%)  reach target first 27% | stop first 53% | neither 20%
+  stop 20.19 (-6.8%)  target 24.61 (+13.6%)  reach target first 7% | stop first 29% | neither 64%
+
+COIN 160.59 (close 2026-10-29)
+  stop 154.28 (-3.9%)  target 173.22 (+7.9%)  reach target first 27% | stop first 53% | neither 20%
+  stop 148.21 (-7.7%)  target 185.35 (+15.4%)  reach target first 7% | stop first 29% | neither 64%
+
+MSTR 141.62 (close 2026-10-29)
+  stop 135.06 (-4.6%)  target 154.74 (+9.3%)  reach target first 27% | stop first 53% | neither 20%
+  stop 128.80 (-9.1%)  target 167.26 (+18.1%)  reach target first 7% | stop first 29% | neither 64%
+
+SPY 769.36 (close 2026-10-29)
+  stop 764.28 (-0.7%)  target 779.53 (+1.3%)  reach target first 27% | stop first 53% | neither 20%
+  stop 759.23 (-1.3%)  target 789.62 (+2.6%)  reach target first 7% | stop first 29% | neither 64%
+
+QQQ 715.34 (close 2026-10-29)
+  stop 705.72 (-1.3%)  target 734.58 (+2.7%)  reach target first 27% | stop first 53% | neither 20%
+  stop 696.23 (-2.7%)  target 753.55 (+5.3%)  reach target first 7% | stop first 29% | neither 64%
+
+NVDA 213.66 (close 2026-10-29)
+  stop 209.18 (-2.1%)  target 222.63 (+4.2%)  reach target first 27% | stop first 53% | neither 20%
+  stop 204.79 (-4.2%)  target 231.40 (+8.3%)  reach target first 7% | stop first 29% | neither 64%
+
+TSLA 403.30 (close 2026-10-29)
+  stop 392.31 (-2.7%)  target 425.28 (+5.5%)  reach target first 27% | stop first 53% | neither 20%
+  stop 381.62 (-5.4%)  target 446.67 (+10.8%)  reach target first 7% | stop first 29% | neither 64%
+
+AAPL 348.91 (close 2026-10-29)
+  stop 344.62 (-1.2%)  target 357.48 (+2.5%)  reach target first 27% | stop first 53% | neither 20%
+  stop 340.39 (-2.4%)  target 365.95 (+4.9%)  reach target first 7% | stop first 29% | neither 64%
+
+MSFT 530.14 (close 2026-10-29)
+  stop 522.85 (-1.4%)  target 544.72 (+2.8%)  reach target first 27% | stop first 53% | neither 20%
+  stop 515.66 (-2.7%)  target 559.10 (+5.5%)  reach target first 7% | stop first 29% | neither 64%
+
+JPM 343.58 (close 2026-10-29)
+  stop 339.89 (-1.1%)  target 350.96 (+2.1%)  reach target first 27% | stop first 53% | neither 20%
+  stop 336.24 (-2.1%)  target 358.25 (+4.3%)  reach target first 7% | stop first 29% | neither 64%
+
+KO 92.82 (close 2026-10-29)
+  stop 91.52 (-1.4%)  target 95.41 (+2.8%)  reach target first 27% | stop first 53% | neither 20%
+  stop 90.25 (-2.8%)  target 97.96 (+5.5%)  reach target first 7% | stop first 29% | neither 64%
+
+XOM 183.29 (close 2026-10-29)
+  stop 180.49 (-1.5%)  target 188.89 (+3.1%)  reach target first 27% | stop first 53% | neither 20%
+  stop 177.73 (-3.0%)  target 194.41 (+6.1%)  reach target first 7% | stop first 29% | neither 64%
+
+GLD 368.57 (close 2026-10-29)
+  stop 363.42 (-1.4%)  target 378.88 (+2.8%)  reach target first 27% | stop first 53% | neither 20%
+  stop 358.33 (-2.8%)  target 389.04 (+5.6%)  reach target first 7% | stop first 29% | neither 64%
