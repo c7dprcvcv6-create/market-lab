@@ -7,6 +7,8 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Install ffmpeg
@@ -15,18 +17,14 @@ jobs:
         run: |
           mkdir -p output
           shopt -s nullglob
-          COUNT=0
           for f in videos/*.mp4 videos/*.mov videos/*.MP4 videos/*.MOV; do
-            [ -e "$f" ] || continue
+            [ -f "$f" ] || continue
             echo "Processing $f"
             ffmpeg -y -i "$f" -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/${f##*/}"
-            COUNT=$((COUNT+1))
           done
-          echo "Done $COUNT files"
-          ls -lh output || echo "No output"
+          ls -lh output
       - name: Save back
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Add 9-16 video"
           file_pattern: output/
-          skip_dirty_check: false
