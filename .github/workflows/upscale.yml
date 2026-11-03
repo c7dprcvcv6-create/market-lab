@@ -2,6 +2,9 @@ name: Upscale 720p to 1080p Free
 on:
   push:
     paths:
+      - '**.mov'
+      - '**.mp4'
+      - 'videos/**'
       - 'data/**'
 
 jobs:
@@ -14,8 +17,11 @@ jobs:
       - name: Upscale with lanczos
         run: |
           mkdir -p output
-          for f in data/*; do
-            ffmpeg -y -i "$f" -vf "scale=1920:1080:flags=lanczos,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/$(basename "$f")"
+          for f in *.mov *.mp4 videos/* data/*; do
+            [ -e "$f" ] || continue
+            # ข้ามไฟล์ที่ไม่ใช่วิดีโอ
+            case "$f" in *.mov|*.mp4|*.MOV|*.MP4) ;; *) continue;; esac
+            ffmpeg -y -i "$f" -vf "scale=1920:1080:flags=lanczos,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/new_$(basename "$f")"
           done
       - name: Save new video
         uses: actions/upload-artifact@v4
