@@ -1,28 +1,26 @@
-name: Upscale 720p to 1080p Free
+name: Make 9-16 Video Ready
 on:
   push:
     paths:
-      - '**.mov'
-      - '**.mp4'
       - 'videos/**'
   workflow_dispatch:
 
 jobs:
-  upscale:
+  convert:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install ffmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
-      - name: Upscale with lanczos
+      - name: Convert to 9-16
         run: |
           mkdir -p output
-          for f in *.mov *.mp4 videos/*.mov videos/*.mp4; do
+          for f in videos/*; do
             [ -e "$f" ] || continue
-            ffmpeg -y -i "$f" -vf "scale=1920:1080:flags=lanczos,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/new_$(basename "$f")"
+            ffmpeg -y -i "$f" -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/${f##*/}"
           done
-      - name: Save new video
-        uses: actions/upload-artifact@v4
+      - name: Save back
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          name: video-1080p-ready
-          path: output/
+          commit_message: "Add 9-16 video"
+          file_pattern: output/
