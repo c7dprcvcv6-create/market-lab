@@ -1,8 +1,7 @@
 name: Make 9-16 Video Ready
 on:
   push:
-    paths:
-      - 'videos/**'
+    paths: ['videos/**']
   workflow_dispatch:
 
 jobs:
@@ -15,9 +14,10 @@ jobs:
       - name: Convert to 9-16
         run: |
           mkdir -p output
-          for f in videos/*; do
+          shopt -s nullglob
+          for f in videos/*.mp4 videos/*.mov videos/*.MP4 videos/*.MOV; do
             [ -e "$f" ] || continue
-            case "$f" in *.mp4|*.mov|*.MP4|*.MOV) ;; *) echo "Skip $f"; continue;; esac
+            echo "Processing $f"
             ffmpeg -y -i "$f" -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/${f##*/}"
           done
       - name: Save back
