@@ -2,7 +2,7 @@ name: Upscale 720p to 1080p Free
 on:
   push:
     paths:
-      - 'input/**'
+      - 'data/**'
 
 jobs:
   upscale:
@@ -14,7 +14,7 @@ jobs:
       - name: Upscale with lanczos
         run: |
           mkdir -p output
-          for f in input/*; do
+          for f in data/*; do
             ffmpeg -y -i "$f" -vf "scale=1920:1080:flags=lanczos,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/$(basename "$f")"
           done
       - name: Save new video
