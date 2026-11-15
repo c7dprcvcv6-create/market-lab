@@ -4,6 +4,10 @@ on:
     paths: ['videos/**']
   workflow_dispatch:
 
+concurrency:
+  group: make-9-16-video
+  cancel-in-progress: false
+
 jobs:
   convert:
     runs-on: ubuntu-latest
@@ -11,20 +15,28 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
       - name: Install ffmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: Convert to 9-16
         run: |
-          mkdir -p output
+          mkdir -p output videos
           shopt -s nullglob
           for f in videos/*.mp4 videos/*.mov videos/*.MP4 videos/*.MOV; do
             [ -f "$f" ] || continue
             echo "Processing $f"
-            ffmpeg -y -i "$f" -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/${f##*/}"
+            if ffmpeg -y -i "$f" -vf "scale=1080:1920:flags=lanczos:force_original_aspect_ratio=increase,crop=1080:1920,unsharp=5:5:0.8:3:3:0.4" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k "output/${f##*/}"; then
+              git rm -q "$f"
+            else
+              echo "Failed: $f"
+              rm -f "output/${f##*/}"
+            fi
           done
+          touch videos/.gitkeep
           ls -lh output
       - name: Save back
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Add 9-16 video"
-          file_pattern: output/
+          file_pattern: output/ videos/
